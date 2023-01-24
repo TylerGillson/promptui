@@ -387,8 +387,7 @@ func (s *Select) innerRun(cursorPos, scroll int, top rune) (int, string, error) 
 		sb.Flush()
 		rl.Write([]byte(showCursor))
 		rl.Close()
-
-		os.Stdout.Write([]byte(doLineWrap))
+		fmt.Print([]byte(doLineWrap))
 		return 0, "", err
 	}
 
@@ -405,6 +404,7 @@ func (s *Select) innerRun(cursorPos, scroll int, top rune) (int, string, error) 
 
 	rl.Write([]byte(showCursor))
 	rl.Close()
+	fmt.Print([]byte(doLineWrap))
 
 	return s.list.Index(), fmt.Sprintf("%v", item), err
 }
