@@ -388,7 +388,7 @@ func (s *Select) innerRun(cursorPos, scroll int, top rune) (int, string, error) 
 		rl.Write([]byte(showCursor))
 		rl.Close()
 
-		os.Stdout.Write([]byte(doLineWrap))
+		//os.Stdout.Write([]byte(doLineWrap))
 		return 0, "", err
 	}
 
