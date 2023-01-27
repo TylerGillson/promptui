@@ -561,6 +561,17 @@ func (sa *SelectWithAdd) Run() (int, string, error) {
 			return selected - 1, value, err
 		}
 
+		//
+		c := &readline.Config{
+			Stdin:  s.Stdin,
+			Stdout: s.Stdout,
+		}
+		c.Init()
+		rl, _ := readline.NewEx(c)
+		rl.Write([]byte(doLineWrap))
+		rl.Close()
+		//
+
 		// XXX run through terminal for windows
 		os.Stdout.Write([]byte(upLine(1) + "\r" + clearLine))
 	}
