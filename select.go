@@ -562,14 +562,7 @@ func (sa *SelectWithAdd) Run() (int, string, error) {
 		}
 
 		//
-		c := &readline.Config{
-			Stdin:  s.Stdin,
-			Stdout: s.Stdout,
-		}
-		c.Init()
-		rl, _ := readline.NewEx(c)
-		rl.Write([]byte(doLineWrap))
-		rl.Close()
+		os.Stdout.Write([]byte(doLineWrap))
 		//
 
 		// XXX run through terminal for windows
